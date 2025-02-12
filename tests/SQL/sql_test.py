@@ -69,7 +69,7 @@ class TestSQL:
             expected_result.append((grade.value, grade_count))
 
         # Execute the SQL query and compare the result with the expected result
-        with open('tests/SQL/count_assignments_in_each_grade.sql', encoding='utf8') as fo:
+        with open('/Users/vikhilreddynalla/Desktop/fyle-interview-intern-backend/tests/SQL/count_assignments_in_each_grade.sql', encoding='utf8') as fo:
             sql = fo.read()
 
         # Execute the SQL query compare the result with the expected result
@@ -81,7 +81,7 @@ class TestSQL:
         """Test to get count of grade A assignments for teacher which has graded maximum assignments"""
 
         # Read the SQL query from a file
-        with open('tests/SQL/count_grade_A_assignments_by_teacher_with_max_grading.sql', encoding='utf8') as fo:
+        with open('/Users/vikhilreddynalla/Desktop/fyle-interview-intern-backend/tests/SQL/count_grade_A_assignments_by_teacher_with_max_grading.sql', encoding='utf8') as fo:
             sql = fo.read()
 
         # Create and grade 5 assignments for the default teacher (teacher_id=1)

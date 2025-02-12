@@ -71,7 +71,6 @@ class Assignment(db.Model):
 
         return assignment
 
-
     @classmethod
     def mark_grade(cls, _id, grade, auth_principal: AuthPrincipal):
         assignment = Assignment.get_by_id(_id)
@@ -89,8 +88,10 @@ class Assignment(db.Model):
         return cls.filter(cls.student_id == student_id).all()
 
     @classmethod
-    def get_assignments_by_teacher(cls):
-        return cls.query.all()
+    def get_assignments_by_teacher(cls, teacher_id):
+        return cls.query.filter_by(teacher_id=teacher_id).all()
+    # def get_assignments_by_teacher(cls):
+    #     return cls.query.all()
 
     @classmethod
     def get_assignments_by_principal(cls):

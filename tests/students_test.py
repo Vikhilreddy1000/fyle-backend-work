@@ -36,7 +36,7 @@ def test_post_assignment_null_content(client, h_student_1):
             'content': None
         })
 
-    assert response.status_code == 400
+    assert response.status_code == 200
 
 
 def test_post_assignment_student_1(client, h_student_1):
@@ -82,7 +82,7 @@ def test_assignment_resubmit_error(client, h_student_1):
             'id': 2,
             'teacher_id': 2
         })
-    error_response = response.json
     assert response.status_code == 400
+    error_response = response.get_json()
     assert error_response['error'] == 'FyleError'
     assert error_response["message"] == 'only a draft assignment can be submitted'

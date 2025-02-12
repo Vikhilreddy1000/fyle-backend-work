@@ -1,5 +1,6 @@
 from core import db
 from core.libs import helpers
+from core.models.teachers import Teacher
 
 
 class Principal(db.Model):
@@ -11,3 +12,10 @@ class Principal(db.Model):
 
     def __repr__(self):
         return '<Principal %r>' % self.id
+    
+
+    @classmethod
+    def get_teachers_by_principal(cls, principal_id):
+        """Fetch teachers associated with the principal_id"""
+        return Teacher.query.filter_by(principal_id=principal_id).all()
+
